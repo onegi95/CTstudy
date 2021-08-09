@@ -1,4 +1,4 @@
-n, m = map(int, input().split(' '))
+n, m = map(int, input().split(' ')) # 
 num_list = [[]]*n
 for i in range(n):
     num_list[i] = list(map(int, input().split(' ')))
