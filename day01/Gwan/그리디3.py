@@ -9,4 +9,4 @@ while m != 0:
     result += arr[1]
     m -= 1
 
-print(res)
+print(result)
