@@ -15,7 +15,7 @@
 # [1 5 2 1]
 # 몫 = [1 2 0 0]
 # 나 = [0 1 2 1]
-# 
+
 
 def adventure(N, number):
     answer = []
