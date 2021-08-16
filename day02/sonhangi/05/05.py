@@ -12,6 +12,7 @@ for tc in range(1,T+1):
     weight_list = [0]*(M+1)
     for wg in range(M+1):
         weight_list[wg] += ball_list.count(wg)
+
     # 2개를 고르는 경우의 수를 모두 count 에 더해준다
     count = 0
     for cal in range(1,len(weight_list)):
