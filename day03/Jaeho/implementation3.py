@@ -1,44 +1,33 @@
-## 내 실력으로 어려움
-a = input()
 
-length = len(a)//2
-result = []
-    
-for i in range(length):
-    sub_list = []
-    for j in range(0, len(a), i+1):
-        sub_list.append(a[j:j+i+1])
-    result.append(sub_list)
-
-r_result = []
-for i in result:
-    s_list = ''
+def solution(s):
+    minimum = len(s)
+    length = len(s) // 2
     cnt = 1
-    for j in range(0, len(i)-1):
-        if i[j] == i[j+1]:
-            cnt += 1
-        else:
-            if cnt == 1:
-                s_list += i[j]
+    for n in range(1, length + 1):
+        result = []
+        for i in range(len(s)):
+            if n * (i + 2) <= len(s):
+                if s[n * i:n * (i + 1)] == s[n * (i + 1):n * (i + 2)]:
+                    cnt += 1
+                elif s[n * i:n * (i + 1)] != s[n * (i + 1):n * (i + 2)]:
+                    if cnt > 1:
+                        result.append(cnt)
+                    result.append(s[n * i:n * (i + 1)])
+                    cnt = 1
+
             else:
-                s_list += str(cnt)
-                s_list += i[j]
-            cnt = 1
-    if cnt == 1:
-        s_list += i[j]
-    else:
-        s_list += str(cnt)
-        s_list += i[j]
-    
-    r_result.append(s_list)
-print(r_result)
+                if cnt > 1:
+                    result.append(cnt)
+                result.append(s[n * i:n * (i + 1)])
+                if len(s[n * (i + 1):]) != 0:
+                    result.append(s[n * (i + 1):])
+                break
+        result = ''.join(map(str, result))
+        if minimum > len(result):
+            minimum = len(result)
+        cnt = 1
 
-len_list = []
-for i in r_result:
-    len_list.append(len(i))
+    return minimum
 
-print(min(len_list))
-    
-        
-
+print(solution(input()))
 
