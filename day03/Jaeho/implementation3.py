@@ -1,4 +1,3 @@
-
 def solution(s):
     minimum = len(s)
     length = len(s) // 2
