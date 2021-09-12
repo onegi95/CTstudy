@@ -11,4 +11,4 @@ for tc in range(1,T+1):
     if a == b:
         print('LUCKY')
     else:
-        print('READY')
+        print('READY')  
