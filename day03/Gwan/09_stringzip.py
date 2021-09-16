@@ -1,5 +1,7 @@
 def solution(string):
     answer = 10000
+    # 단어 길이가 1인경우는 1을 반환해주는 조건 설정
+    # 이 부분 아래의 코드의 경우 2로 나눠주면서 몫만 받아가기 때문에 1 조건 필요
     if len(string) == 1:
         return 1
     # if string == 'aabbaccc'
@@ -15,19 +17,19 @@ def solution(string):
         for j in range(i, len(string)+i, i):
             # 만약 기준으로 삼을 문자열과 탐색 문자열이 같으면
             if slice_string == string[j:j+i]:
-                # 1개씩 더해서 몇개인지 세어준다
+                # 1개씩 더해서 몇개인지 세어준다.
                 cnt += 1
             # 만약 같지 않을때 
             else:
-                # cnt가 1이라면 빈 문자열 result에 기준 값 넣어준다
+                # cnt가 1이라면 빈 문자열 result에 기준 값 넣어준다.
                 if cnt == 1:
                     result += slice_string
-                # 1이 아닐 때는 cnt값과 기준 값을 붙여서 문자열에 넣어준다
+                # 1이 아닐 때는 cnt값과 기준 값을 붙여서 문자열에 넣어준다.
                 else:
                     result += str(cnt) + slice_string
                 slice_string = string[j:j+i]
                 cnt = 1
-        # 기존에 설정했던 답이랑 길이랑         
+        # 기존에 설정했던 답이랑 길이랑
         answer = min(answer, len(result))
     return answer
 # 테스트 케이스 1개 나가는데 뭘까
