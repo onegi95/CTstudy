@@ -1,10 +1,10 @@
-'''
+
 N = 5
 stages = [2, 1, 2, 6, 2, 4, 3, 3]
 '''
 N = 4
 stages = [4, 4, 4, 4, 4]
-
+'''
 
 def solution(N, stages):
     number = [0] * (N+1)
@@ -14,6 +14,7 @@ def solution(N, stages):
         idx = stages[i]
         if len(number) > idx:
             number[idx] += 1
+    # print(number)
     i = 0
     while i < N:
         if number[i+1] == 0:
@@ -23,6 +24,7 @@ def solution(N, stages):
             length -= number[i+1]
         i += 1
     result = sorted(result, key=lambda x:-x[0])
+    # print(result)
     total = [0]*(N)
 
     for i in range(len(result)):
