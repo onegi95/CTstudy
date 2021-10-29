@@ -24,14 +24,14 @@ for tc in range(1,T+1):
     for j in range(N):
         temp = list(map(int, sys.stdin.readline().split()))
         for i in range(len(temp)):
-            if temp[i] == 0:
+            if temp[i] == 0: # 안전지대는?
                 empty_space.append([j,i])
-            elif temp[i] == 2:
+            elif temp[i] == 2: # 바이러스 지대는?
                 danger_space.append([j,i])
         all_lab.append(temp)
     maximun = 0
-    # 빈자리에 격벽 세우는 파트
 
+    # 빈자리에 격벽 세우는 파트
     for i in range(len(empty_space)-2):
         for j in range(i+1,len(empty_space)-1):
             for k in range(j+1,len(empty_space)):
@@ -55,8 +55,5 @@ for tc in range(1,T+1):
                             count += 1
                 if count > maximun:
                     maximun = count
-
-
-
 
     print(maximun)

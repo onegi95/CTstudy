@@ -2,7 +2,7 @@ import sys
 sys.stdin = open('input.txt')
 
 # 확산 관련 함수 만들기
-
+#
 # T = int(input())
 #
 # for tc in range(1, T+1):
@@ -12,7 +12,6 @@ lab_map = []
 # 맵 생성
 for i in range(N):
     lab_map.append(list(map(int, input().split())))
-
 for i in range(N):
     for j in range(N):
         if lab_map[i][j] !=0:
@@ -21,7 +20,7 @@ S, Y, X = map(int, input().split())
 dxx = [0, 0, 1, -1]
 dyy = [1, -1, 0, 0]
 time = 0
-while time < S:
+while time < S and lab_map[Y - 1][X - 1] == 0:
     for i in range(1,K+1): # 바이러스 종류
         temp_stack = []
         while virus_map[i]:
@@ -36,7 +35,8 @@ while time < S:
                     lab_map[dy][dx] = i
                     temp_stack.append([dy,dx])
         virus_map[i] = temp_stack
-    if lab_map[Y-1][X-1] != 0:
-        break
     time += 1
 print(lab_map[Y-1][X-1])
+
+
+
